@@ -1,0 +1,129 @@
+<!doctype html>
+<html lang="pt-PT">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="theme-color" content="#052f20">
+<title>Vencendo a Depressão</title>
+<meta name="description" content="Vencendo a Depressão — programa digital de orientação, reflexão e autocuidado.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700;800&family=Playfair+Display:wght@600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+<header class="microbar">
+  <span>VENCENDO A DEPRESSÃO</span>
+  <span class="micro-dot"></span>
+  <span>UM PASSO DE CADA VEZ</span>
+</header>
+
+<main>
+  <!-- 01 / Headline + redline -->
+  <section class="opening">
+    <div class="opening-glow"></div>
+    <div class="opening-copy">
+      <div class="redline">UM PROGRAMA PARA UMA VIDA MAIS LEVE, EQUILIBRADA E FELIZ</div>
+      <h1>VENCENDO<br><em>A DEPRESSÃO</em></h1>
+      <p>Para quem sente que precisa de ajuda para voltar a cuidar de si, recuperar a motivação e encontrar pequenos caminhos de equilíbrio.</p>
+    </div>
+    <div class="opening-image">
+      <img src="assets/images/capa.jpeg" alt="Vencendo a Depressão">
+    </div>
+  </section>
+
+  <!-- 02 / VSL nearly full screen -->
+  <section class="vsl" id="vsl">
+    <div class="vsl-label">ASSISTA ANTES DE DECIDIR</div>
+    <div class="vsl-frame">
+      <button class="video-poster" data-video="yY4QmsDhJ50" aria-label="Reproduzir vídeo">
+        <img src="https://i.ytimg.com/vi/yY4QmsDhJ50/maxresdefault.jpg" alt="">
+        <span class="play"><i></i></span>
+        <span class="poster-caption">ASSISTIR AGORA</span>
+      </button>
+    </div>
+    <p class="vsl-under">Assista com calma. Depois, continue a descer para conhecer o programa.</p>
+  </section>
+
+  <!-- 03 / Social proof image only -->
+  <section class="proof-banner">
+    <img src="assets/images/prova-1000-pessoas.jpeg" alt="+1000 pessoas ajudadas" loading="lazy">
+  </section>
+
+  <!-- 04 / 10 Shorts, stacked like a Reels feed -->
+  <section class="reels" id="reels">
+    <div class="reels-head">
+      <span>CONTRA FACTOS, NÃO HÁ ARGUMENTOS</span>
+      <h2>Veja os vídeos.<br><em>Tire as suas conclusões.</em></h2>
+      <p>10 vídeos em formato vertical, como Reels e YouTube Shorts.</p>
+    </div>
+    <div id="reelsFeed"></div>
+  </section>
+
+  <!-- 05 / Brief explanation -->
+  <section class="why">
+    <div class="why-inner">
+      <div class="eyebrow">POR QUE ESTE PROGRAMA EXISTE?</div>
+      <h2>Quando a mente pesa,<br><em>até o mais simples pode parecer difícil.</em></h2>
+      <p>O <strong>Vencendo a Depressão</strong> reúne conteúdos de orientação, reflexão e autocuidado para ajudar você a dar pequenos passos na direcção de uma rotina mais equilibrada.</p>
+      <p>Não é preciso resolver tudo de uma vez. A proposta é começar pelo que está ao seu alcance hoje.</p>
+      <div class="three-points">
+        <div><b>01</b><span>Compreender melhor o que está a sentir.</span></div>
+        <div><b>02</b><span>Criar pequenas práticas de cuidado.</span></div>
+        <div><b>03</b><span>Retomar passos com mais consciência.</span></div>
+      </div>
+      <div class="notice"><strong>Importante:</strong> o programa é educativo e não substitui acompanhamento de profissionais de saúde mental ou atendimento de emergência.</div>
+    </div>
+  </section>
+
+  <!-- 06 / Automatic image story -->
+  <section class="story" id="conteudo">
+    <div class="story-head">
+      <div class="eyebrow">DENTRO DO PROGRAMA</div>
+      <h2>Um conteúdo para acompanhar a sua jornada.</h2>
+    </div>
+    <div class="story-window">
+      <div id="storyTrack" class="story-track"></div>
+      <div class="story-shade"></div>
+      <div class="story-count" id="storyCount">01 / 09</div>
+    </div>
+    <div class="story-progress"><span id="storyProgress"></span></div>
+  </section>
+
+  <!-- 07 / Offer image -->
+  <section class="offer" id="oferta">
+    <div class="offer-top">
+      <div class="eyebrow light">SE VOCÊ CHEGOU ATÉ AQUI</div>
+      <h2>O próximo passo<br><em>é seu.</em></h2>
+      <p>Tenha acesso ao programa Vencendo a Depressão e comece a cuidar de si com orientação e conteúdo digital.</p>
+    </div>
+
+    <a class="offer-image" href="https://checkout.escalepay.com/6330949" aria-label="Ir para o checkout">
+      <img src="assets/images/oferta.jpeg" alt="Oferta Vencendo a Depressão — 497 MT">
+      <span>TOQUE PARA TER ACESSO →</span>
+    </a>
+
+    <div class="offer-action">
+      <small>ACESSO AO PROGRAMA</small>
+      <strong>497 MT</strong>
+      <a href="https://checkout.escalepay.com/6330949" class="cta">QUERO TER ACESSO <b>→</b></a>
+      <div class="trust"><span>🔒 Pagamento seguro</span><span>•</span><span>Acesso digital imediato</span><span>•</span><span>Garantia de 7 dias</span></div>
+    </div>
+  </section>
+</main>
+
+<footer>VENCENDO A DEPRESSÃO · UM PASSO DE CADA VEZ</footer>
+
+<div id="videoModal" class="video-modal" aria-hidden="true">
+  <button class="modal-close" aria-label="Fechar">×</button>
+  <div class="modal-video" id="modalVideo"></div>
+</div>
+
+<div class="mobile-cta">
+  <a href="https://checkout.escalepay.com/6330949">TER ACESSO · 497 MT <b>→</b></a>
+</div>
+
+<script src="script.js"></script>
+</body>
+</html>
