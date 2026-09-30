@@ -1,0 +1,446 @@
+<!doctype html>
+<html lang="pt-PT">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="theme-color" content="#082b22">
+<title>Vencendo a Depressão — Um passo de cada vez</title>
+<meta name="description" content="Vencendo a Depressão — um programa para uma vida mais leve, equilibrada e feliz.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;0,700;1,500;1,600;1,700&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="styles.css">
+<style>
+/* Destaque do VSL — apenas visual, sem botão sobre a capa. */
+.vsl-frame{position:relative;isolation:isolate;overflow:visible;}
+.vsl-frame::before{
+  content:"";
+  position:absolute;
+  inset:-9px;
+  border:2px solid rgba(232,195,82,.82);
+  border-radius:32px;
+  box-shadow:0 0 0 5px rgba(232,195,82,.10), 0 0 34px rgba(232,195,82,.28), 0 0 90px rgba(232,195,82,.12);
+  pointer-events:none;
+  z-index:-1;
+  animation:vslPulse 3.8s ease-in-out infinite;
+}
+.vsl-frame::after{
+  content:"";
+  position:absolute;
+  width:92px;height:92px;
+  left:50%;top:-22px;
+  transform:translateX(-50%);
+  border:1px solid rgba(232,195,82,.34);
+  border-radius:50%;
+  box-shadow:0 0 28px rgba(232,195,82,.16);
+  pointer-events:none;
+  z-index:-1;
+}
+@keyframes vslPulse{0%,100%{opacity:.72;box-shadow:0 0 0 5px rgba(232,195,82,.08),0 0 30px rgba(232,195,82,.22),0 0 75px rgba(232,195,82,.08)}50%{opacity:1;box-shadow:0 0 0 7px rgba(232,195,82,.13),0 0 42px rgba(232,195,82,.34),0 0 105px rgba(232,195,82,.14)}}
+@media(max-width:600px){.vsl-frame::before{inset:-6px;border-radius:27px}.vsl-frame::after{width:70px;height:70px;top:-15px}}
+</style>
+
+<style id="mobile-readable-overrides">
+/* Leitura mobile — reforça apenas textos de orientação e apoio, sem alterar a estrutura. */
+@media (max-width: 600px){
+  .hero-scroll{
+    font-size:15px !important;
+    font-weight:800 !important;
+    letter-spacing:.16em !important;
+    opacity:1 !important;
+    color:#e8c452 !important;
+  }
+  .hero-scroll span{font-size:20px !important;}
+
+  .section-kicker{
+    font-size:16px !important;
+    line-height:1.2 !important;
+    letter-spacing:.22em !important;
+    font-weight:800 !important;
+    color:#e7c75e !important;
+  }
+  .section-kicker.dark{
+    color:#9f7d35 !important;
+  }
+
+  .under-vsl{
+    font-size:18px !important;
+    line-height:1.55 !important;
+    font-weight:600 !important;
+    color:rgba(255,255,255,.86) !important;
+    max-width:340px !important;
+    margin:22px auto 0 !important;
+    text-align:center !important;
+  }
+
+  .editorial-head p{
+    font-size:18px !important;
+    line-height:1.65 !important;
+    font-weight:500 !important;
+    color:#56645f !important;
+    max-width:360px !important;
+  }
+  .editorial-head h2{
+    line-height:.94 !important;
+    margin-bottom:24px !important;
+  }
+  .swipe-note{
+    font-size:14px !important;
+    line-height:1.4 !important;
+    font-weight:800 !important;
+    letter-spacing:.16em !important;
+    color:#9b8a62 !important;
+    opacity:1 !important;
+    padding:16px 0 4px !important;
+  }
+
+  .for-you-label{
+    font-size:14px !important;
+    letter-spacing:.22em !important;
+    font-weight:800 !important;
+  }
+  .for-you-subtitle{
+    font-size:18px !important;
+    line-height:1.65 !important;
+    font-weight:500 !important;
+    color:#56645f !important;
+  }
+  .for-you-item p{
+    font-size:17px !important;
+    line-height:1.5 !important;
+    font-weight:650 !important;
+  }
+  .for-you-number{
+    font-size:14px !important;
+  }
+  .for-you-bottom p{
+    font-size:20px !important;
+    line-height:1.42 !important;
+  }
+
+  .journey-top{
+    font-size:14px !important;
+    letter-spacing:.18em !important;
+    font-weight:800 !important;
+  }
+}
+</style>
+<style>
+.offer-image,.offer-button{touch-action:manipulation;-webkit-tap-highlight-color:rgba(232,195,82,.22);cursor:pointer}
+.offer-image img{display:block;width:100%;pointer-events:none}
+.footer{min-height:0!important;height:auto!important;padding:34px 0 42px!important}
+.footer .container{min-height:0!important}
+@media(max-width:480px){.footer{padding:28px 0 34px!important}}
+</style></head>
+<body>
+<div class="ambient ambient-a"></div><div class="ambient ambient-b"></div><div class="grain"></div>
+
+<header class="topbar">
+  <a class="brand" href="#top">VENCENDO <span>A DEPRESSÃO</span></a>
+  <button class="index-trigger" id="indexTrigger" type="button" aria-expanded="false" aria-controls="indexPanel">ÍNDICE <span>+</span></button>
+</header>
+
+<div class="index-panel" id="indexPanel" aria-hidden="true">
+  <div class="index-inner">
+    <div class="index-head"><span>ÍNDICE</span><button id="indexClose" type="button">FECHAR ×</button></div>
+    <nav class="index-links" aria-label="Índice da página">
+      <a href="#vsl">01 <strong>O primeiro passo</strong></a>
+      <a href="#prova">02 <strong>Experiências reais</strong></a>
+      <a href="#historias">03 <strong>Contra factos</strong></a>
+      <a href="#programa">04 <strong>Sobre o programa</strong></a>
+      <a href="#caminho">05 <strong>Um caminho</strong></a>
+      <a href="#oferta">06 <strong>O próximo passo</strong></a>
+    </nav>
+  </div>
+</div>
+
+<main id="top">
+  <section class="hero section-dark">
+    <div class="hero-glow glow-one"></div><div class="hero-glow glow-two"></div>
+    <div class="container hero-inner">
+      <h1>Você não precisa<br>continuar a<br><em>viver assim.</em></h1>
+      <p class="hero-copy">Existe um caminho para voltar a sentir leveza, equilíbrio e vontade de viver.</p>
+      <div class="hero-cover glass">
+        <img src="./assets/capa.jpeg" alt="Vencendo a Depressão">
+      </div>
+      <a class="hero-scroll" href="#vsl">DESCUBRA O PROGRAMA <span>↓</span></a>
+    </div>
+  </section>
+
+  <section id="vsl" class="vsl-section section-dark">
+    <div class="container narrow">
+      <div class="section-kicker">O PRIMEIRO PASSO</div>
+      <div class="vsl-frame glass">
+        <iframe src="https://www.youtube-nocookie.com/embed/yY4QmsDhJ50?rel=0&modestbranding=1&playsinline=1" title="Vencendo a Depressão" loading="lazy" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+        <div class="vsl-shine"></div>
+      </div>
+      <p class="under-vsl">Assista até ao fim. Pode ser o primeiro passo para uma mudança.</p>
+    </div>
+  </section>
+
+  <section id="prova" class="proof section-dark">
+    <div class="container">
+      <div class="gold-rule"></div>
+      <figure class="proof-image glow-card"><img src="./assets/prova-1000-pessoas.jpeg" alt="Mais de 1000 pessoas ajudadas"></figure>
+    </div>
+  </section>
+
+  <section id="historias" class="social-proof section-light">
+    <div class="container">
+      <div class="editorial-head">
+        <div class="section-kicker dark">CONTRA FACTOS</div>
+        <h2><span>NÃO HÁ</span><em> ARGUMENTOS.</em></h2>
+        <p>Veja diferentes histórias e perspectivas. Deslize para conhecer os 10 vídeos.</p>
+      </div>
+      <div class="reels-wrap">
+        <div class="reels-track" id="reelsTrack">
+          <article class="reel-card"><iframe src="https://www.youtube-nocookie.com/embed/mubZlAu9b8k?rel=0&modestbranding=1&playsinline=1" title="Vídeo 1" loading="lazy" allowfullscreen></iframe></article>
+          <article class="reel-card"><iframe src="https://www.youtube-nocookie.com/embed/7AVt40ReBDA?rel=0&modestbranding=1&playsinline=1" title="Vídeo 2" loading="lazy" allowfullscreen></iframe></article>
+          <article class="reel-card"><iframe src="https://www.youtube-nocookie.com/embed/lKZrVAuk85w?rel=0&modestbranding=1&playsinline=1" title="Vídeo 3" loading="lazy" allowfullscreen></iframe></article>
+          <article class="reel-card"><iframe src="https://www.youtube-nocookie.com/embed/Bvv_XImMRDk?rel=0&modestbranding=1&playsinline=1" title="Vídeo 4" loading="lazy" allowfullscreen></iframe></article>
+          <article class="reel-card"><iframe src="https://www.youtube-nocookie.com/embed/n1sOptthrRE?rel=0&modestbranding=1&playsinline=1" title="Vídeo 5" loading="lazy" allowfullscreen></iframe></article>
+          <article class="reel-card"><iframe src="https://www.youtube-nocookie.com/embed/h7uLAu6cVpo?rel=0&modestbranding=1&playsinline=1" title="Vídeo 6" loading="lazy" allowfullscreen></iframe></article>
+          <article class="reel-card"><iframe src="https://www.youtube-nocookie.com/embed/gyFxrgD7z-c?rel=0&modestbranding=1&playsinline=1" title="Vídeo 7" loading="lazy" allowfullscreen></iframe></article>
+          <article class="reel-card"><iframe src="https://www.youtube-nocookie.com/embed/kXIzPDkVkvE?rel=0&modestbranding=1&playsinline=1" title="Vídeo 8" loading="lazy" allowfullscreen></iframe></article>
+          <article class="reel-card"><iframe src="https://www.youtube-nocookie.com/embed/NtiZNDfdIJY?rel=0&modestbranding=1&playsinline=1" title="Vídeo 9" loading="lazy" allowfullscreen></iframe></article>
+          <article class="reel-card"><iframe src="https://www.youtube-nocookie.com/embed/SJbS450AtSo?rel=0&modestbranding=1&playsinline=1" title="Vídeo 10" loading="lazy" allowfullscreen></iframe></article>
+        </div>
+      </div>
+      <div class="swipe-note">← DESLIZE PARA VER OS 10 VÍDEOS →</div>
+    </div>
+  </section>
+
+  <style>
+    /* Bloco É PARA SI SE — exclusivo desta secção; o restante da página permanece inalterado. */
+    .for-you-section{
+      position:relative;
+      overflow:hidden;
+      background:
+        radial-gradient(circle at 88% 8%, rgba(225,190,82,.16), transparent 30%),
+        radial-gradient(circle at 0% 75%, rgba(10,65,48,.08), transparent 32%),
+        #f7f6f1;
+      padding:88px 0 54px;
+      color:#082b22;
+    }
+    .for-you-section::before{
+      content:"";
+      position:absolute;
+      width:180px;height:180px;
+      right:-90px;top:170px;
+      border:1px solid rgba(173,139,59,.18);
+      border-radius:50%;
+      box-shadow:0 0 80px rgba(229,193,79,.12);
+    }
+    .for-you-inner{
+      position:relative;
+      z-index:1;
+    }
+    .for-you-intro{
+      max-width:680px;
+      margin-bottom:42px;
+    }
+    .for-you-label{
+      display:inline-flex;
+      align-items:center;
+      gap:12px;
+      margin-bottom:18px;
+      font:700 12px/1 Manrope,sans-serif;
+      letter-spacing:.24em;
+      color:#9c7b32;
+      text-transform:uppercase;
+    }
+    .for-you-label::before{
+      content:"";
+      width:30px;height:1px;
+      background:#d9b85b;
+      box-shadow:0 0 10px rgba(217,184,91,.45);
+    }
+    .for-you-title{
+      margin:0;
+      max-width:620px;
+      font:800 clamp(38px,10vw,64px)/.98 Manrope,sans-serif;
+      letter-spacing:-.055em;
+      color:#082b22;
+    }
+    .for-you-title strong{
+      display:block;
+      margin-top:8px;
+      color:#b18d3f;
+      font-weight:700;
+    }
+    .for-you-subtitle{
+      max-width:560px;
+      margin:22px 0 0;
+      font:500 17px/1.75 Manrope,sans-serif;
+      color:#66716d;
+    }
+    .for-you-list{
+      display:grid;
+      gap:12px;
+      margin-top:36px;
+    }
+    .for-you-item{
+      position:relative;
+      display:grid;
+      grid-template-columns:44px 1fr;
+      align-items:center;
+      gap:14px;
+      padding:18px 17px;
+      border:1px solid rgba(8,43,34,.09);
+      border-radius:22px;
+      background:rgba(255,255,255,.66);
+      box-shadow:0 12px 32px rgba(8,43,34,.045);
+      backdrop-filter:blur(12px);
+      -webkit-backdrop-filter:blur(12px);
+    }
+    .for-you-number{
+      display:grid;
+      place-items:center;
+      width:42px;height:42px;
+      border-radius:50%;
+      background:linear-gradient(145deg,#efd275,#cba84d);
+      color:#082b22;
+      font:800 13px/1 Manrope,sans-serif;
+      box-shadow:0 5px 18px rgba(201,165,74,.25), inset 0 1px 0 rgba(255,255,255,.7);
+    }
+    .for-you-item p{
+      margin:0;
+      font:600 15px/1.5 Manrope,sans-serif;
+      color:#283a35;
+    }
+    .for-you-bottom{
+      margin-top:38px;
+      padding:28px 24px;
+      border-radius:26px;
+      background:linear-gradient(135deg,#082b22 0%,#0d4636 100%);
+      color:#fff;
+      box-shadow:0 20px 55px rgba(8,43,34,.18);
+      position:relative;
+      overflow:hidden;
+    }
+    .for-you-bottom::after{
+      content:"";
+      position:absolute;
+      width:150px;height:150px;
+      right:-65px;top:-80px;
+      border-radius:50%;
+      background:rgba(239,210,117,.22);
+      filter:blur(2px);
+    }
+    .for-you-bottom p{
+      position:relative;
+      z-index:1;
+      margin:0 0 20px;
+      max-width:480px;
+      font:700 21px/1.35 Manrope,sans-serif;
+      letter-spacing:-.02em;
+    }
+    .for-you-cta{
+      position:relative;
+      z-index:1;
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      gap:14px;
+      width:100%;
+      padding:17px 18px 17px 20px;
+      border-radius:18px;
+      background:linear-gradient(135deg,#f1d474,#d5b253);
+      color:#082b22;
+      text-decoration:none;
+      font:800 12px/1 Manrope,sans-serif;
+      letter-spacing:.12em;
+      box-shadow:0 12px 28px rgba(224,188,80,.22), 0 0 0 1px rgba(255,255,255,.55) inset;
+    }
+    .for-you-cta span{
+      display:grid;
+      place-items:center;
+      width:38px;height:38px;
+      border-radius:12px;
+      background:rgba(255,255,255,.35);
+      font-size:20px;
+      box-shadow:0 0 18px rgba(255,255,255,.2);
+    }
+    @media(min-width:760px){
+      .for-you-section{padding:118px 0 72px;}
+      .for-you-list{grid-template-columns:1fr 1fr;gap:14px;}
+      .for-you-bottom{display:flex;align-items:center;justify-content:space-between;gap:30px;padding:34px;}
+      .for-you-bottom p{margin:0;}
+      .for-you-cta{width:auto;min-width:280px;}
+    }
+  </style>
+
+  <section id="programa" class="for-you-section">
+    <div class="container for-you-inner">
+      <div class="for-you-intro">
+        <div class="for-you-label">SOBRE O PROGRAMA</div>
+        <h2 class="for-you-title">Este programa é <strong>para si se…</strong></h2>
+      </div>
+
+      <div class="for-you-list">
+        <div class="for-you-item"><span class="for-you-number">01</span><p>Sente-se constantemente cansada emocionalmente.</p></div>
+        <div class="for-you-item"><span class="for-you-number">02</span><p>Perdeu a motivação para coisas que antes gostava.</p></div>
+        <div class="for-you-item"><span class="for-you-number">03</span><p>Tem dificuldade em lidar com pensamentos negativos.</p></div>
+        <div class="for-you-item"><span class="for-you-number">04</span><p>Sente que está a carregar tudo sozinha.</p></div>
+        <div class="for-you-item"><span class="for-you-number">05</span><p>Quer começar a cuidar melhor de si.</p></div>
+        <div class="for-you-item"><span class="for-you-number">06</span><p>Procura orientação prática para dar os primeiros passos.</p></div>
+      </div>
+
+    </div>
+  </section>
+
+  <section id="caminho" class="journey section-light">
+    <div class="container">
+      <div class="journey-top"><span>UM CAMINHO</span><span>01 — 09</span></div>
+      <div class="story-stage" id="storyStage">
+        <div class="story-slide active"><img src="./assets/slide-01.jpeg" alt="Experiência do programa 1"></div>
+        <div class="story-slide"><img src="./assets/slide-02.jpeg" alt="Experiência do programa 2"></div>
+        <div class="story-slide"><img src="./assets/slide-03.jpeg" alt="Experiência do programa 3"></div>
+        <div class="story-slide"><img src="./assets/slide-04.jpeg" alt="Experiência do programa 4"></div>
+        <div class="story-slide"><img src="./assets/slide-05.jpeg" alt="Experiência do programa 5"></div>
+        <div class="story-slide"><img src="./assets/slide-06.jpeg" alt="Experiência do programa 6"></div>
+        <div class="story-slide"><img src="./assets/slide-07.jpeg" alt="Experiência do programa 7"></div>
+        <div class="story-slide"><img src="./assets/slide-08.jpeg" alt="Experiência do programa 8"></div>
+        <div class="story-slide"><img src="./assets/slide-09.jpeg" alt="Experiência do programa 9"></div>
+        <div class="story-progress"><span id="storyProgress"></span></div>
+      </div>
+    </div>
+  </section>
+
+  <section id="oferta" class="offer section-dark">
+    <div class="offer-orb"></div>
+    <div class="container narrow offer-inner">
+      <div class="section-kicker">SE ESTÁ PRONTO PARA COMEÇAR</div>
+      <h2>O seu próximo passo<br><em>pode começar hoje.</em></h2>
+      <a class="offer-image glow-card" href="https://checkout.escalepay.com/6330949" aria-label="Ir para o checkout do programa">
+        <img src="./assets/oferta.jpeg" alt="Oferta Vencendo a Depressão — 497 MT">
+      </a>
+      <a class="offer-button" href="https://checkout.escalepay.com/6330949">QUERO TER ACESSO AO PROGRAMA <span>↗</span></a>
+      <p class="secure">Pagamento seguro · Acesso digital imediato</p>
+    </div>
+  </section>
+
+  <footer class="footer section-dark">
+    <div class="container"><div class="footer-name">VENCENDO A DEPRESSÃO</div><div class="footer-line">Um passo de cada vez.</div></div>
+  </footer>
+</main>
+
+<script src="script.js"></script>
+<script>
+(function(){
+  const checkout='https://checkout.escalepay.com/6330949';
+  document.querySelectorAll('.offer-image,.offer-button').forEach(function(el){
+    let done=false;
+    function go(e){
+      if(done)return;
+      done=true;
+      if(e){e.preventDefault();e.stopPropagation();}
+      window.location.assign(checkout);
+    }
+    el.setAttribute('href',checkout);
+    el.addEventListener('touchend',go,{passive:false});
+    el.addEventListener('click',go);
+  });
+})();
+</script></body>
+</html>
