@@ -1,0 +1,189 @@
+
+<!-- ===== MÚSICA DE FUNDO mYo ===== -->
+<audio id="bgMusic"
+       src="./assets/music.mp3"
+       autoplay
+       loop
+       playsinline
+       preload="auto"></audio>
+
+<button id="musicControl"
+        class="music-control"
+        type="button"
+        aria-label="Pausar música"
+        title="Pausar música">
+  <span class="music-bars" aria-hidden="true"><i></i><i></i><i></i></span>
+  <span class="pause-icon" aria-hidden="true">Ⅱ</span>
+</button>
+
+<style>
+.music-control{
+  position:fixed;
+  z-index:1000;
+  right:18px;
+  bottom:82px;
+  width:56px;
+  height:56px;
+  border:1px solid rgba(232,195,82,.55);
+  border-radius:50%;
+  background:rgba(8,43,34,.94);
+  color:#e8c452;
+  display:grid;
+  place-items:center;
+  cursor:pointer;
+  box-shadow:0 12px 35px rgba(0,0,0,.35);
+  -webkit-tap-highlight-color:transparent;
+}
+.music-control:active{transform:scale(.94)}
+.music-bars{display:flex;align-items:center;justify-content:center;gap:3px;height:22px}
+.music-bars i{display:block;width:3px;height:10px;border-radius:4px;background:#e8c452}
+.music-control.playing .music-bars i:nth-child(1){animation:musicbar .75s ease-in-out infinite alternate}
+.music-control.playing .music-bars i:nth-child(2){animation:musicbar .55s ease-in-out infinite alternate .1s}
+.music-control.playing .music-bars i:nth-child(3){animation:musicbar .85s ease-in-out infinite alternate .2s}
+@keyframes musicbar{from{height:7px}to{height:20px}}
+.pause-icon{display:none;font-size:18px;line-height:1}
+.music-control.paused .pause-icon{display:block}
+.music-control.paused .music-bars{display:none}
+@media(max-width:600px){
+  .music-control{right:15px;bottom:84px;width:54px;height:54px}
+}
+</style>
+
+<script>
+(function(){
+  const music = document.getElementById('bgMusic');
+  const button = document.getElementById('musicControl');
+
+  if(!music || !button) return;
+
+  let manuallyPaused = false;
+  let youtubePlayers = [];
+  let youtubeReady = false;
+
+  function updateButton(){
+    const playing = !music.paused;
+    button.classList.toggle('playing', playing);
+    button.classList.toggle('paused', !playing);
+    button.setAttribute('aria-label', playing ? 'Pausar música' : 'Tocar música');
+    button.title = playing ? 'Pausar música' : 'Tocar música';
+  }
+
+  function playMusic(){
+    if(manuallyPaused) return;
+    music.play().catch(function(){});
+    updateButton();
+  }
+
+  function pauseMusic(){
+    music.pause();
+    updateButton();
+  }
+
+  button.addEventListener('click', function(){
+    if(music.paused){
+      manuallyPaused = false;
+      playMusic();
+    }else{
+      manuallyPaused = true;
+      pauseMusic();
+    }
+  });
+
+  music.addEventListener('play', updateButton);
+  music.addEventListener('pause', updateButton);
+
+  /*
+   * O YouTube exige a API IFrame para sabermos quando o vídeo
+   * realmente entrou em reprodução.
+   */
+  function loadYouTubeAPI(){
+    if(window.YT && window.YT.Player){
+      initYouTubePlayers();
+      return;
+    }
+
+    window.onYouTubeIframeAPIReady = function(){
+      youtubeReady = true;
+      initYouTubePlayers();
+    };
+
+    const existing = document.querySelector('script[src="https://www.youtube.com/iframe_api"]');
+    if(!existing){
+      const s = document.createElement('script');
+      s.src = 'https://www.youtube.com/iframe_api';
+      document.head.appendChild(s);
+    }
+  }
+
+  function initYouTubePlayers(){
+    if(!window.YT || !YT.Player) return;
+
+    const frames = document.querySelectorAll('iframe[src*="youtube-nocookie.com/embed/"], iframe[src*="youtube.com/embed/"]');
+
+    frames.forEach(function(frame){
+      if(frame.dataset.ytMusicBound === '1') return;
+      frame.dataset.ytMusicBound = '1';
+
+      /*
+       * enablejsapi=1 e origin permitem que a API comunique com o iframe.
+       * Preservamos os restantes parâmetros existentes.
+       */
+      try{
+        const u = new URL(frame.src, location.href);
+        u.searchParams.set('enablejsapi','1');
+        u.searchParams.set('origin',location.origin);
+        frame.src = u.toString();
+      }catch(_){}
+
+      try{
+        const player = new YT.Player(frame, {
+          events:{
+            onStateChange:function(event){
+              /*
+               * 1 = PLAYING
+               * Assim que qualquer vídeo começar realmente a tocar,
+               * a música de fundo para.
+               *
+               * Não retomamos automaticamente quando o vídeo pausa.
+               */
+              if(event.data === YT.PlayerState.PLAYING){
+                manuallyPaused = true;
+                pauseMusic();
+              }
+            }
+          }
+        });
+        youtubePlayers.push(player);
+      }catch(_){}
+    });
+  }
+
+  /*
+   * Autoplay: tenta iniciar imediatamente.
+   * Se o navegador bloquear, a primeira interação do utilizador
+   * tenta novamente.
+   */
+  function tryStart(){
+    if(!manuallyPaused && music.paused) playMusic();
+  }
+
+  document.addEventListener('DOMContentLoaded', function(){
+    tryStart();
+    loadYouTubeAPI();
+  });
+
+  window.addEventListener('load', function(){
+    tryStart();
+    setTimeout(loadYouTubeAPI, 300);
+  });
+
+  ['pointerdown','touchstart','click'].forEach(function(type){
+    document.addEventListener(type, function(){
+      if(!manuallyPaused && music.paused) tryStart();
+    }, {passive:true, once:false});
+  });
+
+  updateButton();
+})();
+</script>
+<!-- ===== FIM DA MÚSICA DE FUNDO ===== -->
